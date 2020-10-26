@@ -338,3 +338,5 @@ C:\Users\nicol\Desktop\MobileClass\GAME2014_A1_PlumbNicolas\Temp\bin\Debug\Unity
 C:\Users\nicol\Desktop\MobileClass\GAME2014_A1_PlumbNicolas\obj\Debug\Assembly-CSharp-Editor.csproj.CopyComplete
 C:\Users\nicol\Desktop\MobileClass\GAME2014_A1_PlumbNicolas\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\nicol\Desktop\MobileClass\GAME2014_A1_PlumbNicolas\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\nicol\Desktop\MobileClass\GAME2014_A1_PlumbNicolas\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll
+C:\Users\nicol\Desktop\MobileClass\GAME2014_A1_PlumbNicolas\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.pdb

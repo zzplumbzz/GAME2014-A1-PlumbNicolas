@@ -1,27 +1,42 @@
-﻿using System.Collections;
+﻿/*
+ *  Boundaries.cs Script
+    Nicolas Plumb / 101078622 / October 23 2020
+    
+    LateUpdate
+    keeps the player from leaving the map. 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Boundaries : MonoBehaviour
 {
-    private Vector2 screenBounds;
-    public float objectWidth;
-    public float objectHeight;
+    [Header("Player")]
+    public Transform target;
+    [Header("Camera")]
+    public float smoothing;
+    [Header("Boundaries")]
+    public Vector2 minPosition;
+    public Vector2 maxPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        objectWidth = transform.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x + objectWidth, screenBounds.x * -1 - objectWidth);
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y + objectHeight, screenBounds.y * -1 - objectHeight);
-        transform.position = viewPos;
+        if (transform.position != target.position)
+        {
+            Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+
+            targetPosition.x = Mathf.Clamp(targetPosition.x, minPosition.x, maxPosition.x);
+            targetPosition.y = Mathf.Clamp(targetPosition.y, minPosition.y, maxPosition.y);
+
+            transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
+        }
     }
 }
